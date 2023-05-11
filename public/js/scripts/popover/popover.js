@@ -3,12 +3,12 @@
     Description: Popovers are an updated version, which don’t rely on images, 
                 use CSS3 for animations, and data-attributes for local title storage.
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
 (function(window, document, $) {
-'use strict';
+    'use strict';
     $('[data-toggle="popover"]').popover();
 
 
@@ -22,8 +22,8 @@
         content: 'Bonbon chocolate cake. Pudding halvah pie apple pie topping marzipan pastry marzipan cupcake.',
         trigger: 'click',
         placement: 'right'
-        }).on('show.bs.popover', function() {
-            alert('Show event fired.');
+    }).on('show.bs.popover', function() {
+        alert('Show event fired.');
     });
 
     // onShown event

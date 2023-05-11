@@ -2,7 +2,7 @@
 //  File Name: timeline.scss
 //  Description: Timeline Page specific SCSS.
 //  ----------------------------------------------------------------------------------------------
-//  Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+//  
 //  Author: Saad Raza
 //  Author URL: http://www.themeforest.net/user/Saad Raza
 // ================================================================================================
@@ -10,15 +10,14 @@
 @import "../bootstrap/functions";
 @import "../bootstrap/mixins";
 @import "../bootstrap-extended/mixins";
-
 // Core variables and mixins overrides
 @import "../core/variables/variables";
 @import "../bootstrap/variables";
-
 // Overrides user variable
 @import "../core/variables/components-variables";
 
 /* Timeline */
+
 .timeline {
     position: relative;
     display: block;
@@ -61,6 +60,7 @@
 .timeline-line+.timeline-item {
     margin-top: -20px;
 }
+
 .timeline-group {
     display: block;
     position: relative;
@@ -69,6 +69,7 @@
     float: none !important;
     z-index: 1;
 }
+
 .timeline-poster {
     margin-top: -20px;
     .btn-link {
@@ -88,7 +89,7 @@
     }
 }
 
-#timeline.timeline-center{
+#timeline.timeline-center {
     .timeline-line {
         display: inline-block;
         position: absolute;
@@ -184,7 +185,7 @@
                 // background-color: #fff;
                 text-decoration: none;
                 transition: all ease .3s;
-                i{
+                i {
                     color: $white;
                     font-size: 1.6rem;
                     display: block;
@@ -218,7 +219,8 @@
         }
     }
 }
-#timeline.timeline-right{
+
+#timeline.timeline-right {
     .timeline-line {
         display: inline-block;
         position: absolute;
@@ -229,43 +231,41 @@
         background-color: #ddd;
         transform: translate(-50%, 0);
     }
-    .timeline-group{
+    .timeline-group {
         text-align: right;
     }
-
     .timeline-item {
         position: relative;
         display: inline-block;
         width: 100%;
         padding: 0px 43px 35px 0px;
-
-            &:after {
-                content: '';
-                position: absolute;
-                right: 33px;
-                top: 21px;
-                width: 0;
-                height: 0;
-                z-index: 1;
-                border-top: 11px solid $body-bg;
-                border-bottom: 11px solid $body-bg;
-                border-left: 11px solid #fff;
-            }
-            &:before {
-                content: '';
-                position: absolute;
-                right: 32px;
-                top: 20px;
-                width: 0;
-                height: 0;
-                border-top: 12px solid transparent;
-                border-bottom: 12px solid transparent;
-                border-left: 12px solid #ccc;
-                z-index: 1;
-            }
-            >.timeline-badge {
-                right: -8px;
-            }
+        &:after {
+            content: '';
+            position: absolute;
+            right: 33px;
+            top: 21px;
+            width: 0;
+            height: 0;
+            z-index: 1;
+            border-top: 11px solid $body-bg;
+            border-bottom: 11px solid $body-bg;
+            border-left: 11px solid #fff;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            right: 32px;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid #ccc;
+            z-index: 1;
+        }
+        >.timeline-badge {
+            right: -8px;
+        }
         >.timeline-badge {
             position: absolute;
             top: 12px;
@@ -280,7 +280,7 @@
                 // background-color: #fff;
                 text-decoration: none;
                 transition: all ease .3s;
-                i{
+                i {
                     color: $white;
                     font-size: 1.6rem;
                     display: block;
@@ -319,7 +319,7 @@
                 right: 8px;
                 left: auto;
             }
-            &:after{
+            &:after {
                 right: 11px;
                 left: auto;
             }
@@ -332,7 +332,8 @@
         }
     }
 }
-#timeline.timeline-left{
+
+#timeline.timeline-left {
     .timeline-line {
         display: inline-block;
         position: absolute;
@@ -343,7 +344,7 @@
         background-color: #ddd;
         transform: translate(-50%, 0);
     }
-    .timeline-group{
+    .timeline-group {
         text-align: left;
     }
     .timeline-item {
@@ -351,34 +352,33 @@
         display: inline-block;
         width: 100%;
         padding: 0 0 35px 43px;
-            &:after {
-                content: '';
-                position: absolute;
-                left: 33px;
-                top: 21px;
-                width: 0;
-                height: 0;
-                z-index: 1;
-                border-top: 11px solid $body-bg;
-                border-bottom: 11px solid $body-bg;
-                border-right: 11px solid #fff;
-            }
-            &:before {
-                content: '';
-                position: absolute;
-                left: 32px;
-                top: 20px;
-                width: 0;
-                height: 0;
-                border-top: 12px solid transparent;
-                border-bottom: 12px solid transparent;
-                border-right: 12px solid #ccc;
-                z-index: 1;
-            }
-            >.timeline-badge {
-                left: -8px;
-            }
-
+        &:after {
+            content: '';
+            position: absolute;
+            left: 33px;
+            top: 21px;
+            width: 0;
+            height: 0;
+            z-index: 1;
+            border-top: 11px solid $body-bg;
+            border-bottom: 11px solid $body-bg;
+            border-right: 11px solid #fff;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            left: 32px;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid #ccc;
+            z-index: 1;
+        }
+        >.timeline-badge {
+            left: -8px;
+        }
         >.timeline-badge {
             position: absolute;
             top: 12px;
@@ -393,7 +393,7 @@
                 // background-color: #fff;
                 text-decoration: none;
                 transition: all ease .3s;
-                i{
+                i {
                     color: $white;
                     font-size: 1.6rem;
                     display: block;
@@ -427,6 +427,7 @@
         }
     }
 }
+
 #timeline .timeline-item.block {
     &:nth-child(even) {
         width: 100% !important;
@@ -499,34 +500,42 @@
         }
     }
 }
+
 .timeline-actions {
     display: none;
 }
+
 .timeline-content {
     padding: 15px;
 }
+
 .timeline-footer {
     padding: 15px;
     border-top: 1px solid #eee;
     background-color: #fbfcfc;
     border-radius: 0 0 5px 5px;
 }
+
 .timeline-heading {
     padding: 15px;
     font-size: 20px;
 }
+
 .timeline-liveliness {
     padding: 15px;
     border-top: 1px solid #eee;
     background-color: #fbfcfc;
 }
+
 .timeline-heading+.timeline-content {
     padding-top: 0;
 }
+
 .timeline-date {
     font-size: 14px;
     color: #aaa;
 }
+
 .timeline-embed {
     position: relative;
     padding-bottom: 56.25%;
@@ -561,28 +570,35 @@
         height: 100%;
     }
 }
+
 .timeline-img {
     display: block;
     padding: 5px 0;
 }
+
 .timeline-img.first {
     margin-right: -10px;
 }
+
 .timeline-img.middle {
     margin-right: -10px;
     margin-left: -10px;
 }
+
 .timeline-img.last {
     margin-left: -10px;
 }
+
 .timeline-resume {
     border-top: 1px solid #eee;
     background-color: #fbfcfc;
 }
+
 .timeline-avatar {
     margin-top: -2px;
     margin-right: 10px;
 }
+
 .timeline-title {
     margin: 0;
     padding: 0;
@@ -601,12 +617,14 @@
         white-space: nowrap;
     }
 }
+
 .wrapkit-content-rtl {
     .timeline-avatar {
         margin-right: 0;
         margin-left: 10px;
     }
 }
+
 @include media-breakpoint-up(lg) {
     .timeline-item {
         &:nth-child(even) {
@@ -618,6 +636,7 @@
         }
     }
 }
+
 @include media-breakpoint-down(md) {
     .timeline {
         padding-left: 15px;
@@ -763,12 +782,13 @@
         }
     }
 }
+
 @include media-breakpoint-down(md) {
-    #timeline.timeline-wrapper{
+    #timeline.timeline-wrapper {
         .timeline {
             padding: 0;
-            .card-body{
-                text-align:left;
+            .card-body {
+                text-align: left;
             }
         }
         .timeline-line {
@@ -843,6 +863,7 @@
         }
     }
 }
+
 @include media-breakpoint-down(xs) {
     .timeline-item {
         >.timeline-badge {

@@ -2,20 +2,21 @@
 //  File Name: media-player.scss
 //  Description: Media Player SCSS.
 //  ----------------------------------------------------------------------------------------------
-//  Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+//  
 //  Author: Saad Raza
 //  Author URL: http://www.themeforest.net/user/Saad Raza
 // ================================================================================================
-
 // to remove outline on focus
 .audio-player {
-  &:focus {
-    outline: 0;
-  }
+    &:focus {
+        outline: 0;
+    }
 }
+
 .plyr__controls {
-  justify-content: flex-start;
+    justify-content: flex-start;
 }
-.plyr__progress{
-  flex-grow: 1;
+
+.plyr__progress {
+    flex-grow: 1;
 }

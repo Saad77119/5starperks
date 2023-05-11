@@ -3,11 +3,11 @@
     Description: Tooltips are an updated version, which don’t rely on images, 
                 use CSS3 for animations, and data-attributes for local title storage.
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: hhttp://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
-    (function(window, document, $) {
+(function(window, document, $) {
     'use strict';
 
     /******************/
@@ -19,8 +19,8 @@
         title: 'Tooltip Show Event',
         trigger: 'click',
         placement: 'right'
-        }).on('show.bs.tooltip', function() {
-            alert('Show event fired.');
+    }).on('show.bs.tooltip', function() {
+        alert('Show event fired.');
     });
 
     // onShown event
@@ -84,7 +84,7 @@
     });
 
     /* Default template */
-    $(".template").on('click', function(){
+    $(".template").on('click', function() {
         console.log(
             '<div class="tooltip" role="tooltip">' +
             '<div class="tooltip-arrow"></div>' +

@@ -2,7 +2,7 @@
     File Name: wizard-steps.js
     Description: wizard steps page specific js
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
@@ -16,7 +16,7 @@ $(".number-tab-steps").steps({
     labels: {
         finish: 'Submit'
     },
-    onFinished: function (event, currentIndex) {
+    onFinished: function(event, currentIndex) {
         alert("Form submitted.");
     }
 });
@@ -30,7 +30,7 @@ $(".icons-tab-steps").steps({
     labels: {
         finish: 'Submit'
     },
-    onFinished: function (event, currentIndex) {
+    onFinished: function(event, currentIndex) {
         alert("Form submitted.");
     }
 });
@@ -48,7 +48,7 @@ $(".steps-validation").steps({
     labels: {
         finish: 'Submit'
     },
-    onStepChanging: function (event, currentIndex, newIndex) {
+    onStepChanging: function(event, currentIndex, newIndex) {
         // Allways allow previous action even if the current form is not valid!
         if (currentIndex > newIndex) {
             return true;
@@ -63,11 +63,11 @@ $(".steps-validation").steps({
         form.validate().settings.ignore = ":disabled,:hidden";
         return form.valid();
     },
-    onFinishing: function (event, currentIndex) {
+    onFinishing: function(event, currentIndex) {
         form.validate().settings.ignore = ":disabled";
         return form.valid();
     },
-    onFinished: function (event, currentIndex) {
+    onFinished: function(event, currentIndex) {
         alert("Submitted!");
     }
 });
@@ -77,13 +77,13 @@ $(".steps-validation").validate({
     ignore: 'input[type=hidden]', // ignore hidden fields
     errorClass: 'danger',
     successClass: 'success',
-    highlight: function (element, errorClass) {
+    highlight: function(element, errorClass) {
         $(element).removeClass(errorClass);
     },
-    unhighlight: function (element, errorClass) {
+    unhighlight: function(element, errorClass) {
         $(element).removeClass(errorClass);
     },
-    errorPlacement: function (error, element) {
+    errorPlacement: function(error, element) {
         error.insertAfter(element);
     },
     rules: {

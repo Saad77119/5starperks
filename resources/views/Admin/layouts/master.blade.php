@@ -71,6 +71,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/card-analytics.css') }}">
     <!-- END: Page CSS-->
 
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/app-user.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/pickadate/pickadate.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
 
     <!-- END: Dashboard CSS -->
     <!-- BEGIN: Custom CSS-->

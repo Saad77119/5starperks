@@ -2,20 +2,20 @@
     File Name: card-statistics.js
     Description: Card-statistics page content with Apexchart Examples
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
 
-$(window).on("load", function(){
+$(window).on("load", function() {
 
-  var $primary = '#7367F0';
-  var $success = '#28C76F';
-  var $danger = '#EA5455';
-  var $warning = '#FF9F43';
-  var $primary_light = '#A9A2F6';
-  var $success_light = '#55DD92';
-  var $warning_light = '#ffc085';
+    var $primary = '#7367F0';
+    var $success = '#28C76F';
+    var $danger = '#EA5455';
+    var $warning = '#FF9F43';
+    var $primary_light = '#A9A2F6';
+    var $success_light = '#55DD92';
+    var $warning_light = '#ffc085';
 
     // Subscribed Gained Chart
     // ----------------------------------
@@ -24,8 +24,8 @@ $(window).on("load", function(){
         chart: {
             height: 100,
             type: 'area',
-            toolbar:{
-              show: false,
+            toolbar: {
+                show: false,
             },
             sparkline: {
                 enabled: true
@@ -61,12 +61,12 @@ $(window).on("load", function(){
         }],
 
         xaxis: {
-          labels: {
-            show: false,
-          },
-          axisBorder: {
-            show: false,
-          }
+            labels: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            }
         },
         yaxis: [{
             y: 0,
@@ -95,8 +95,8 @@ $(window).on("load", function(){
         chart: {
             height: 100,
             type: 'area',
-            toolbar:{
-              show: false,
+            toolbar: {
+                show: false,
             },
             sparkline: {
                 enabled: true
@@ -132,12 +132,12 @@ $(window).on("load", function(){
         }],
 
         xaxis: {
-          labels: {
-            show: false,
-          },
-          axisBorder: {
-            show: false,
-          }
+            labels: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            }
         },
         yaxis: [{
             y: 0,
@@ -165,8 +165,8 @@ $(window).on("load", function(){
         chart: {
             height: 100,
             type: 'area',
-            toolbar:{
-              show: false,
+            toolbar: {
+                show: false,
             },
             sparkline: {
                 enabled: true
@@ -202,12 +202,12 @@ $(window).on("load", function(){
         }],
 
         xaxis: {
-          labels: {
-            show: false,
-          },
-          axisBorder: {
-            show: false,
-          }
+            labels: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            }
         },
         yaxis: [{
             y: 0,
@@ -234,8 +234,8 @@ $(window).on("load", function(){
         chart: {
             height: 100,
             type: 'area',
-            toolbar:{
-              show: false,
+            toolbar: {
+                show: false,
             },
             sparkline: {
                 enabled: true
@@ -271,12 +271,12 @@ $(window).on("load", function(){
         }],
 
         xaxis: {
-          labels: {
-            show: false,
-          },
-          axisBorder: {
-            show: false,
-          }
+            labels: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            }
         },
         yaxis: [{
             y: 0,
@@ -311,8 +311,8 @@ $(window).on("load", function(){
                 blur: 4,
                 opacity: 0.10,
             },
-            toolbar:{
-              show: false,
+            toolbar: {
+                show: false,
             },
             sparkline: {
                 enabled: true
@@ -349,12 +349,12 @@ $(window).on("load", function(){
         }],
 
         xaxis: {
-          labels: {
-            show: false,
-          },
-          axisBorder: {
-            show: false,
-          }
+            labels: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            }
         },
         yaxis: [{
             y: 0,
@@ -389,8 +389,8 @@ $(window).on("load", function(){
                 blur: 4,
                 opacity: 0.10,
             },
-            toolbar:{
-              show: false,
+            toolbar: {
+                show: false,
             },
             sparkline: {
                 enabled: true
@@ -427,12 +427,12 @@ $(window).on("load", function(){
         }],
 
         xaxis: {
-          labels: {
-            show: false,
-          },
-          axisBorder: {
-            show: false,
-          }
+            labels: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            }
         },
         yaxis: [{
             y: 0,
@@ -467,8 +467,8 @@ $(window).on("load", function(){
                 blur: 4,
                 opacity: 0.10,
             },
-            toolbar:{
-              show: false,
+            toolbar: {
+                show: false,
             },
             sparkline: {
                 enabled: true
@@ -505,12 +505,12 @@ $(window).on("load", function(){
         }],
 
         xaxis: {
-          labels: {
-            show: false,
-          },
-          axisBorder: {
-            show: false,
-          }
+            labels: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            }
         },
         yaxis: [{
             y: 0,

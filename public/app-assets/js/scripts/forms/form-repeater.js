@@ -4,8 +4,8 @@
     ----------------------------------------------------------------------------------------
     Item Name: Vuexy HTML Admin Template
     Version: 1.0
-    Author: Saad Raza
-    Author URL: http://www.themeforest.net/user/Saad Raza
+    Author: PIXINVENT
+    Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
 $(function () {

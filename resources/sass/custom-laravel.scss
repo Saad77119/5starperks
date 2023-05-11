@@ -2,7 +2,7 @@
     File Name: laravel-menu.scss
     Description: laravel Specific menu styles
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
@@ -11,22 +11,18 @@
 @import "bootstrap/functions";
 @import "bootstrap/mixins";
 @import "bootstrap-extended/mixins";
-
 // Core variables and mixins overrides
 @import "core/variables/variables";
 @import "bootstrap/variables";
-
 // Overrides user variable
 @import "core/variables/components-variables";
-
 // Import first main menu mixin
 @import "core/mixins/main-menu-mixin";
-
 //  Vertical menu
 //=========================
 body.vertical-layout {
-   &.vertical-menu-modern {
-        .horizontal-menu-wrapper{
+    &.vertical-menu-modern {
+        .horizontal-menu-wrapper {
             display: none;
         }
     }
@@ -34,14 +30,14 @@ body.vertical-layout {
 
 // Horizontal Menu
 //=========================
-.horizontal-menu{
+.horizontal-menu {
     // Hide Vertical menu in Horizontal Layout in Laravel not in HTML
-	>.main-menu{
-		display: none;
-	}
-	.fixed-top{
-		left: 0;
-	}
+    >.main-menu {
+        display: none;
+    }
+    .fixed-top {
+        left: 0;
+    }
 }
 
 // content style
@@ -54,13 +50,13 @@ html body.navbar-static .app-content .header-navbar {
 @include media-breakpoint-down(xs) {
     // Vertical Layout
     body.vertical-layout {
-        &:not(.horizontal-layout){
-            &.navbar-floating{
-                .header-navbar{
+        &:not(.horizontal-layout) {
+            &.navbar-floating {
+                .header-navbar {
                     margin-left: 1.2rem;
                     margin-right: 1.2rem;
                 }
             }
         }
     }
- }
+}

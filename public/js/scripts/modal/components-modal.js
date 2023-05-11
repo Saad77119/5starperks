@@ -3,14 +3,14 @@
     Description: Modals are streamlined, but flexible, dialog prompts with the minimum 
 				required functionality and smart defaults.
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: hhttp://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
 (function(window, document, $) {
-	'use strict';
+    'use strict';
 
-     // onShow event
+    // onShow event
     $('#onshowbtn').on('click', function() {
         $('#onshow').on('show.bs.modal', function() {
             alert('onShow event fired.');

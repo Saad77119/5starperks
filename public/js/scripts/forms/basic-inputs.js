@@ -2,7 +2,7 @@
         File Name: basic-inputs.js
         Description: Input field js for label type
         ----------------------------------------------------------------------------------------
-        Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+        
         Author: Saad Raza
         Author URL: hhttp://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
@@ -11,7 +11,7 @@
     'use strict';
     var $html = $('html');
 
-        //label Positions
+    //label Positions
     $(".labelUp").labelinplace();
     $(".labelDown").labelinplace({
         labelPosition: "down"

@@ -1,238 +1,494 @@
 @extends('Admin.layouts.master')
 @section('title', 'Customers')
 @section('style')
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
-<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/app-user.css')}}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-wizard.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/pickadate/pickadate.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
-<style>
-   @media (min-width: 576px){
-   .modal-dialog {
-   max-width: 900px !important;
-   margin: 6.75rem auto !important;
-   }
-   }
-   .bs-stepper{
-   box-shadow:none !important;
-   }
-</style>
+
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
 @endsection
 @section('content')
 <div class="content-wrapper container-xxl p-0">
             <div class="content-header row">
             </div>
             <div class="content-body">
-                   <section class="app-user-view">
-                        <!-- User Card & Plan Starts -->
-                        <div class="row">
-                            <!-- User Card starts-->
-                            <div class="col-xl-9 col-lg-8 col-md-7">
-                                <div class="card user-card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-xl-6 col-lg-12 d-flex flex-column justify-content-between border-container-lg">
-                                                <div class="user-avatar-section">
-                                                    <div class="d-flex justify-content-start">
-                                                        <img class="img-fluid rounded" src="{{ asset('images/profile/user-upload/'.$data->profile_image) }}" height="104" width="104" alt="User avatar" />
-                                                        <div class="d-flex flex-column ms-1">
-                                                            <div class="user-info mb-1">
-                                                                <h4 class="mb-0">{{ $data->name }}</h4>
-                                                                <span class="card-text">{{ $data->email }}</span>
-                                                            </div>
-                                                            
-                                                            <div class="d-flex flex-wrap">
-                                                                <a href="{{ url('customers/'.$data->id.'/edit'); }}" class="btn btn-primary">Edit</a>
-                                                                <button  onClick="delete_customer({{ $data->id }})" class="btn btn-outline-danger ms-1">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            
+                <section class="app-user-view-account">
+                    <div class="row">
+                        <!-- User Sidebar -->
+                        <div class="col-xl-4 col-lg-5 col-md-5 order-1 order-md-0">
+                            <!-- User Card -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="user-avatar-section">
+                                        <div class="d-flex align-items-center flex-column">
+                                            <img class="img-fluid rounded mt-3 mb-2" src="../../../app-assets/images/portrait/small/avatar-s-2.jpg" height="110" width="110" alt="User avatar" />
+                                            <div class="user-info text-center">
+                                                <h4>Gertrude Barton</h4>
+                                                <span class="badge bg-light-secondary">Customer</span>
                                             </div>
-                                            <div class="col-xl-6 col-lg-12 mt-2 mt-xl-0">
-                                                <div class="user-info-wrapper">
-                                                    <div class="d-flex flex-wrap">
-                                                        <div class="user-info-title">
-                                                            <i data-feather="user" class="me-1"></i>
-                                                            <span class="card-text user-info-title fw-bold mb-0">Username</span>
-                                                        </div>
-                                                        <p class="card-text mb-0">{{ $data->username }}</p>
-                                                    </div>
-                                                    <div class="d-flex flex-wrap my-50">
-                                                        <div class="user-info-title">
-                                                            <i data-feather="check" class="me-1"></i>
-                                                            <span class="card-text user-info-title fw-bold mb-0">Status</span>
-                                                        </div>
-                                                        <p class="card-text mb-0">{{ $data->is_active?"Active":"InActive"}}</p>
-                                                    </div>
-                                                    <div class="d-flex flex-wrap my-50">
-                                                        <div class="user-info-title">
-                                                            <i data-feather="star" class="me-1"></i>
-                                                            <span class="card-text user-info-title fw-bold mb-0">Role</span>
-                                                        </div>
-                                                        <p class="card-text mb-0">Customers</p>
-                                                    </div>
-                                                    <div class="d-flex flex-wrap my-50">
-                                                        <div class="user-info-title">
-                                                            <i data-feather="flag" class="me-1"></i>
-                                                            <span class="card-text user-info-title fw-bold mb-0">Country</span>
-                                                        </div>
-                                                        <p class="card-text mb-0">{{ isset($data->country)?$data->country:''; }}</p>
-                                                    </div>
-                                                    <div class="d-flex flex-wrap">
-                                                        <div class="user-info-title">
-                                                            <i data-feather="phone" class="me-1"></i>
-                                                            <span class="card-text user-info-title fw-bold mb-0">Contact</span>
-                                                        </div>
-                                                        <p class="card-text mb-0">{{ isset($data->phone_no)?$data->phone_no:"";}}</p>
-                                                    </div>
-                                                    <div class="d-flex flex-wrap">
-                                                        <div class="user-info-title">
-                                                            <i data-feather="sunrise" class="me-1"></i>
-                                                            <span class="card-text user-info-title fw-bold mb-0">Date Of Birth</span>
-                                                        </div>
-                                                        <p class="card-text mb-0">{{ isset($data->date_of_birth)?$data->date_of_birth:"";}}</p>
-                                                    </div>
-                                                    
-                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-around my-2 pt-75">
+                                        <div class="d-flex align-items-start me-2">
+                                            <span class="badge bg-light-primary p-75 rounded">
+                                                <i data-feather="check" class="font-medium-2"></i>
+                                            </span>
+                                            <div class="ms-75">
+                                                <h4 class="mb-0">1.23k</h4>
+                                                <small>Views Done</small>
                                             </div>
+                                        </div>
+                                        <div class="d-flex align-items-start">
+                                            <span class="badge bg-light-primary p-75 rounded">
+                                                <i data-feather="briefcase" class="font-medium-2"></i>
+                                            </span>
+                                            <div class="ms-75">
+                                                <h4 class="mb-0">568</h4>
+                                                <small>Sales Done</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h4 class="fw-bolder border-bottom pb-50 mb-1">Details</h4>
+                                    <div class="info-container">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Username:</span>
+                                                <span>violet.dev</span>
+                                            </li>
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Billing Email:</span>
+                                                <span>vafgot@vultukir.org</span>
+                                            </li>
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Status:</span>
+                                                <span class="badge bg-light-success">Active</span>
+                                            </li>
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Role:</span>
+                                                <span>Customer</span>
+                                            </li>
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Tax ID:</span>
+                                                <span>Tax-8965</span>
+                                            </li>
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Contact:</span>
+                                                <span>+1 (609) 933-44-22</span>
+                                            </li>
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Language:</span>
+                                                <span>English</span>
+                                            </li>
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Country:</span>
+                                                <span>Wake Island</span>
+                                            </li>
+                                        </ul>
+                                        <div class="d-flex justify-content-center pt-2">
+                                            <a href="javascript:;" class="btn btn-primary me-1" data-bs-target="#editUser" data-bs-toggle="modal">
+                                                Edit
+                                            </a>
+                                            <a href="javascript:;" class="btn btn-outline-danger suspend-user">Suspended</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /User Card Ends-->
-                            <div class="col-xl-3 col-lg-4 col-md-5">
-                                <div class="card plan-card border-primary">
-                                    <div class="card-header d-flex justify-content-between align-items-center pt-75 pb-1">
-                                        <h5 class="mb-0">Bio</h5>
-                                        </span>
+                            <!-- /User Card -->
+                            <!-- Plan Card -->
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <span class="badge bg-light-primary">Standard</span>
+                                        <div class="d-flex justify-content-center">
+                                            <sup class="h5 pricing-currency text-primary mt-1 mb-0">$</sup>
+                                            <span class="fw-bolder display-5 mb-0 text-primary">99</span>
+                                            <sub class="pricing-duration font-small-4 ms-25 mt-auto mb-2">/month</sub>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                    {{ $data->bio}}
-                                        <ul style="display:flex;flex-direction:row;" class="list-unstyled my-1">
-                                            @if (isset($data->	facebook_url))
-                                            <li class="m-1">
-                                            
-                                                <a href="{{ isset($data->facebook_url)?$data->facebook_url:'';}}" target="_blank">
-                                                <i class="fa fa-facebook "></i>
-                                                
-                                                </a>
-                                            </li>
-                                            @endif
-                                            @if (isset($data->google_url))
-                                            <li class="m-1">
-                                            <a href="{{ isset($data->google_url)?$data->google_url:'';}}" target="_blank">
-                                                <i class="fa fa-google "></i>
-                                                
-                                                </a>
-                                            </li>
-                                            @endif
-                                            @if (isset($data->linkdin_url))
-                                            <li class="m-1">
-                                            <a href="{{ isset($data->linkdin_url)?$data->linkdin_url:'';}}" target="_blank">
-                                            <i class="fa fa-linkedin "></i>
-                                            
-                                                </a>
-                                            </li>
-                                            @endif
-                                            @if (isset($data->twitter_url))
-                                            <li class="m-1">
-                                            <a href="{{ isset($data->twitter_url)?$data->twitter_url:'';}}" target="_blank">
-                                            <i class="fa fa-twitter"></i>
-                                            
-                                                </a>
-                                            </li>
-                                            @endif
-                                        </ul>
-                                        
+                                    <ul class="ps-1 mb-2">
+                                        <li class="mb-50">10 Users</li>
+                                        <li class="mb-50">Up to 10 GB storage</li>
+                                        <li>Basic Support</li>
+                                    </ul>
+                                    <div class="d-flex justify-content-between align-items-center fw-bolder mb-50">
+                                        <span>Days</span>
+                                        <span>4 of 30 Days</span>
+                                    </div>
+                                    <div class="progress mb-50" style="height: 8px">
+                                        <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="65" aria-valuemax="100" aria-valuemin="80"></div>
+                                    </div>
+                                    <span>4 days remaining</span>
+                                    <div class="d-grid w-100 mt-2">
+                                        <button class="btn btn-primary" data-bs-target="#upgradePlanModal" data-bs-toggle="modal">
+                                            Upgrade Plan
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <!-- /Plan Card -->
                         </div>
-                        <!-- User Card & Plan Ends -->
+                        <!--/ User Sidebar -->
 
-                        <!-- User Timeline & Permissions Starts -->
-                        <div class="row">
-                            <!-- information starts -->
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title mb-2">User Timeline</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="timeline">
-                                            <li class="timeline-item">
-                                                <span class="timeline-point timeline-point-indicator"></span>
-                                                <div class="timeline-event">
-                                                    <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                                                        <h6>12 Invoices have been paid</h6>
-                                                        <span class="timeline-event-time">12 min ago</span>
-                                                    </div>
-                                                    <p>Invoices have been paid to the company.</p>
-                                                    <div class="d-flex align-items-center">
-                                                        <img class="me-1" src="../../../app-assets/images/icons/file-icons/pdf.png" alt="invoice" height="23" />
-                                                        <div class="invoice-name">invoice.pdf</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <span class="timeline-point timeline-point-warning timeline-point-indicator"></span>
-                                                <div class="timeline-event">
-                                                    <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                                                        <h6>Client Meeting</h6>
-                                                        <span class="timeline-event-time">45 min ago</span>
-                                                    </div>
-                                                    <p>Project meeting with john @10:15am.</p>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar">
-                                                            <img src="../../../app-assets/images/avatars/12-small.png" alt="avatar" height="38" width="38" />
+                        <!-- User Content -->
+                        <div class="col-xl-8 col-lg-7 col-md-7 order-0 order-md-1">
+                            <!-- User Pills -->
+                            <ul class="nav nav-pills mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="app-user-view-account.html">
+                                        <i data-feather="user" class="font-medium-3 me-50"></i>
+                                        <span class="fw-bold">Account</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="app-user-view-security.html">
+                                        <i data-feather="lock" class="font-medium-3 me-50"></i>
+                                        <span class="fw-bold">Security</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="app-user-view-billing.html">
+                                        <i data-feather="bookmark" class="font-medium-3 me-50"></i>
+                                        <span class="fw-bold">Billing & Plans</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="app-user-view-notifications.html">
+                                        <i data-feather="bell" class="font-medium-3 me-50"></i><span class="fw-bold">Notifications</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="app-user-view-connections.html">
+                                        <i data-feather="link" class="font-medium-3 me-50"></i><span class="fw-bold">Connections</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--/ User Pills -->
+
+                            <!-- Project table -->
+                            <div class="card">
+                                <h4 class="card-header">Sales List</h4>
+                                <div class="table-responsive">
+                                    <table class="table datatable-project">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>User</th>
+                                              
+                                                <th class="text-nowrap">Plan</th>
+                                                <th>Registered At</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                     <div class="d-flex justify-content-left align-items-center"> 
+                                                    <div class="avatar-wrapper"> 
+                                                        <div class="avatar me-1">
+                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="32" height="32" />
                                                         </div>
-                                                        <div class="user-info ms-50">
-                                                            <h6 class="mb-0">John Doe (Client)</h6>
-                                                            <span>CEO of Infibeam</span>
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                        <a href="#" class="user_name text-truncate"><span class="fw-bold">
+                                                        Ali Haider
+                                                        </span></a>
+                                                        <small class="emp_post text-muted">@alihaider12
+                                                        </small>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <span class="timeline-point timeline-point-info timeline-point-indicator"></span>
-                                                <div class="timeline-event">
-                                                    <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                                                        <h6>Create a new project for client</h6>
-                                                        <span class="timeline-event-time">2 days ago</span>
+                                            </td>
+                                         
+                                            <td>
+                                                <span class="d-flex justify-content-center badge bg-light-primary">
+                                                    <span class="mb-0 text-primary">$</span>
+                                                    <sup class="h5 pricing-currency text-primary mt-1 mb-0">99</sup>
+                                                    <sub class="pricing-duration font-small-4 ms-25 mt-auto mb-2">/month</sub>
+                                                </span>
+                                            </td>
+                                            <td>December 12,2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                     <div class="d-flex justify-content-left align-items-center"> 
+                                                    <div class="avatar-wrapper"> 
+                                                        <div class="avatar me-1">
+                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-3.jpg" alt="Avatar" width="32" height="32" />
+                                                        </div>
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                        <a href="#" class="user_name text-truncate"><span class="fw-bold">
+                                                        Ali Badi
+                                                        </span></a>
+                                                        <small class="emp_post text-muted">@aliBadi
+                                                        </small>
+                                                        </div>
                                                     </div>
-                                                    <p class="mb-0">Add files to new design folder</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                            </td>
+                                         
+                                            <td>
+                                                <span class="d-flex justify-content-center badge bg-light-primary">
+                                                    <span class="mb-0 text-primary">$</span>
+                                                    <sup class="h5 pricing-currency text-primary mt-1 mb-0">199</sup>
+                                                    <sub class="pricing-duration font-small-4 ms-25 mt-auto mb-2">/month</sub>
+                                                </span>
+                                            </td>
+                                            <td>December 12,2023</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <!-- information Ends -->
+                            <!-- /Project table -->
 
-                        
+                            <!-- Activity Timeline -->
+                            <div class="card">
+                                <h4 class="card-header">User Activity Timeline</h4>
+                                <div class="card-body pt-1">
+                                    <ul class="timeline ms-50">
+                                        <li class="timeline-item">
+                                            <span class="timeline-point timeline-point-indicator"></span>
+                                            <div class="timeline-event">
+                                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                                    <h6>User login</h6>
+                                                    <span class="timeline-event-time me-1">12 min ago</span>
+                                                </div>
+                                                <p>User login at 2:12pm</p>
+                                            </div>
+                                        </li>
+                                        <li class="timeline-item">
+                                            <span class="timeline-point timeline-point-warning timeline-point-indicator"></span>
+                                            <div class="timeline-event">
+                                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                                    <h6>Meeting with john</h6>
+                                                    <span class="timeline-event-time me-1">45 min ago</span>
+                                                </div>
+                                                <p>React Project meeting with john @10:15am</p>
+                                                <div class="d-flex flex-row align-items-center mb-50">
+                                                    <div class="avatar me-50">
+                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="38" height="38" />
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6 class="mb-0">Leona Watkins (Client)</h6>
+                                                        <p class="mb-0">CEO of pixinvent</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="timeline-item">
+                                            <span class="timeline-point timeline-point-info timeline-point-indicator"></span>
+                                            <div class="timeline-event">
+                                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                                    <h6>Create a new react project for client</h6>
+                                                    <span class="timeline-event-time me-1">2 day ago</span>
+                                                </div>
+                                                <p>Add files to new design folder</p>
+                                            </div>
+                                        </li>
+                                        <li class="timeline-item">
+                                            <span class="timeline-point timeline-point-danger timeline-point-indicator"></span>
+                                            <div class="timeline-event">
+                                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                                    <h6>Create Invoices for client</h6>
+                                                    <span class="timeline-event-time me-1">12 min ago</span>
+                                                </div>
+                                                <p class="mb-0">Create new Invoices and send to Leona Watkins</p>
+                                                <div class="d-flex flex-row align-items-center mt-50">
+                                                    <img class="me-1" src="../../../app-assets/images/icons/pdf.png" alt="data.json" height="25" />
+                                                    <h6 class="mb-0">Invoices.pdf</h6>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /Activity Timeline -->
+
+                            <!-- Invoice table -->
+                            <div class="card">
+                                <table class="invoice-table table text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>#ID</th>
+                                            <th><i data-feather="trending-up"></i></th>
+                                            <th>TOTAL Paid</th>
+                                            <th class="text-truncate">Issued Date</th>
+                                            <th class="cell-fit">Actions</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <!-- /Invoice table -->
                         </div>
-                        <!-- User Timeline & Permissions Ends -->
-
-                    
-                    </section>
+                        <!--/ User Content -->
+                    </div>
+                </section>
+                <!-- Edit User Modal -->
+                <div class="modal fade" id="editUser" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-edit-user">
+                        <div class="modal-content">
+                            <div class="modal-header bg-transparent">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body pb-5 px-sm-5 pt-50">
+                                <div class="text-center mb-2">
+                                    <h1 class="mb-1">Edit User Information</h1>
+                                    <p>Updating user details will receive a privacy audit.</p>
+                                </div>
+                                <form id="editUserForm" class="row gy-1 pt-75" onsubmit="return false">
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="modalEditUserFirstName">First Name</label>
+                                        <input type="text" id="modalEditUserFirstName" name="modalEditUserFirstName" class="form-control" placeholder="John" value="Gertrude" data-msg="Please enter your first name" />
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="modalEditUserLastName">Last Name</label>
+                                        <input type="text" id="modalEditUserLastName" name="modalEditUserLastName" class="form-control" placeholder="Doe" value="Barton" data-msg="Please enter your last name" />
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label" for="modalEditUserName">Username</label>
+                                        <input type="text" id="modalEditUserName" name="modalEditUserName" class="form-control" value="gertrude.dev" placeholder="john.doe.007" />
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="modalEditUserEmail">Billing Email:</label>
+                                        <input type="text" id="modalEditUserEmail" name="modalEditUserEmail" class="form-control" value="gertrude@gmail.com" placeholder="example@domain.com" />
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="modalEditUserStatus">Status</label>
+                                        <select id="modalEditUserStatus" name="modalEditUserStatus" class="form-select" aria-label="Default select example">
+                                            <option selected>Status</option>
+                                            <option value="1">Active</option>
+                                            <option value="2">Inactive</option>
+                                            <option value="3">Suspended</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="modalEditTaxID">Tax ID</label>
+                                        <input type="text" id="modalEditTaxID" name="modalEditTaxID" class="form-control modal-edit-tax-id" placeholder="Tax-8894" value="Tax-8894" />
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="modalEditUserPhone">Contact</label>
+                                        <input type="text" id="modalEditUserPhone" name="modalEditUserPhone" class="form-control phone-number-mask" placeholder="+1 (609) 933-44-22" value="+1 (609) 933-44-22" />
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="modalEditUserLanguage">Language</label>
+                                        <select id="modalEditUserLanguage" name="modalEditUserLanguage" class="select2 form-select" multiple>
+                                            <option value="english">English</option>
+                                            <option value="spanish">Spanish</option>
+                                            <option value="french">French</option>
+                                            <option value="german">German</option>
+                                            <option value="dutch">Dutch</option>
+                                            <option value="hebrew">Hebrew</option>
+                                            <option value="sanskrit">Sanskrit</option>
+                                            <option value="hindi">Hindi</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="modalEditUserCountry">Country</label>
+                                        <select id="modalEditUserCountry" name="modalEditUserCountry" class="select2 form-select">
+                                            <option value="">Select Value</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="Bangladesh">Bangladesh</option>
+                                            <option value="Belarus">Belarus</option>
+                                            <option value="Brazil">Brazil</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="China">China</option>
+                                            <option value="France">France</option>
+                                            <option value="Germany">Germany</option>
+                                            <option value="India">India</option>
+                                            <option value="Indonesia">Indonesia</option>
+                                            <option value="Israel">Israel</option>
+                                            <option value="Italy">Italy</option>
+                                            <option value="Japan">Japan</option>
+                                            <option value="Korea">Korea, Republic of</option>
+                                            <option value="Mexico">Mexico</option>
+                                            <option value="Philippines">Philippines</option>
+                                            <option value="Russia">Russian Federation</option>
+                                            <option value="South Africa">South Africa</option>
+                                            <option value="Thailand">Thailand</option>
+                                            <option value="Turkey">Turkey</option>
+                                            <option value="Ukraine">Ukraine</option>
+                                            <option value="United Arab Emirates">United Arab Emirates</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="United States">United States</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-flex align-items-center mt-1">
+                                            <div class="form-check form-switch form-check-primary">
+                                                <input type="checkbox" class="form-check-input" id="customSwitch10" checked />
+                                                <label class="form-check-label" for="customSwitch10">
+                                                    <span class="switch-icon-left"><i data-feather="check"></i></span>
+                                                    <span class="switch-icon-right"><i data-feather="x"></i></span>
+                                                </label>
+                                            </div>
+                                            <label class="form-check-label fw-bolder" for="customSwitch10">Use as a billing address?</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center mt-2 pt-50">
+                                        <button type="submit" class="btn btn-primary me-1">Submit</button>
+                                        <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">
+                                            Discard
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Edit User Modal -->
+                <!-- upgrade your plan Modal -->
+                <div class="modal fade" id="upgradePlanModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-upgrade-plan">
+                        <div class="modal-content">
+                            <div class="modal-header bg-transparent">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body px-5 pb-2">
+                                <div class="text-center mb-2">
+                                    <h1 class="mb-1">Upgrade Plan</h1>
+                                    <p>Choose the best plan for user.</p>
+                                </div>
+                                <form id="upgradePlanForm" class="row pt-50" onsubmit="return false">
+                                    <div class="col-sm-8">
+                                        <label class="form-label" for="choosePlan">Choose Plan</label>
+                                        <select id="choosePlan" name="choosePlan" class="form-select" aria-label="Choose Plan">
+                                            <option selected>Choose Plan</option>
+                                            <option value="standard">Standard - $99/month</option>
+                                            <option value="exclusive">Exclusive - $249/month</option>
+                                            <option value="Enterprise">Enterprise - $499/month</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4 text-sm-end">
+                                        <button type="submit" class="btn btn-primary mt-2">Upgrade</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr />
+                            <div class="modal-body px-5 pb-3">
+                                <h6>User current plan is standard plan</h6>
+                                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                    <div class="d-flex justify-content-center me-1 mb-1">
+                                        <sup class="h5 pricing-currency pt-1 text-primary">$</sup>
+                                        <h1 class="fw-bolder display-4 mb-0 text-primary me-25">99</h1>
+                                        <sub class="pricing-duration font-small-4 mt-auto mb-2">/month</sub>
+                                    </div>
+                                    <button class="btn btn-outline-danger cancel-subscription mb-1">Cancel Subscription</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ upgrade your plan Modal -->
             </div>
         </div>
-
-
 @endsection
 
 @section('scripts')
 <script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
-<script src="../../../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
-<script src="../../../app-assets/vendors/js/pickers/pickadate/picker.js"></script>
-<script src="../../../app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
-<script src="../../../app-assets/vendors/js/forms/cleave/cleave.min.js"></script>
-<script src="../../../app-assets/vendors/js/forms/cleave/addons/cleave-phone.us.js"></script>
-<script src="../../../app-assets/js/scripts/forms/form-input-mask.js"></script>
+ <!-- BEGIN: Page JS-->
+ <script src="../../../app-assets/js/scripts/pages/modal-edit-user.js"></script>
+    <script src="../../../app-assets/js/scripts/pages/app-user-view-account.js"></script>
+    <script src="../../../app-assets/js/scripts/pages/app-user-view.js"></script>
+    <!-- END: Page JS-->
+
 <script>
       function delete_customer(id) {
     if (confirm("Are You sure want to Delete !")) {
@@ -251,7 +507,6 @@
                     })
                     
                 } else {
-                   
                   $(window).attr('location', '/customers');
                     Toast.fire({
                         icon: "success",

@@ -2,17 +2,17 @@
     File Name: user-profile.js
     Description: User Profile jQuery Plugin Intialization
     --------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
 
 
-$(document).ready(function(){
+$(document).ready(function() {
 
-  /************************************
-  *     Block Examples      *
-  ************************************/
+    /************************************
+     *     Block Examples      *
+     ************************************/
     $('.block-element').on('click', function() {
         var block_ele = $(this);
         $(block_ele).block({
@@ -32,9 +32,9 @@ $(document).ready(function(){
     });
 
     // profile-header-nav toggle
-  $('.navbar-toggler').on('click',function(){
-    $('.navbar-collapse').toggleClass('show');
-    $('.navbar-toggler-icon i').toggleClass('icon-x icon-align-justify');
-  });
+    $('.navbar-toggler').on('click', function() {
+        $('.navbar-collapse').toggleClass('show');
+        $('.navbar-toggler-icon i').toggleClass('icon-x icon-align-justify');
+    });
 
 });

@@ -2,58 +2,55 @@
 //  File Name: search.scss
 //  Description: Page content search pages page layouts SCSS.
 //  ----------------------------------------------------------------------------------------------
-//  Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+//  
 //  Author: Saad Raza
 //  Author URL: http://www.themeforest.net/user/Saad Raza
 // ================================================================================================
-
 // Core variables and mixins overrides
 @import "../bootstrap/functions";
 @import "../core/variables/variables";
 @import "../bootstrap/variables";
-
 // Overrides user variable
 @import "../core/variables/components-variables";
-
-#search-results{
+#search-results {
     //media-list
-    .media-list{
-        .media{
+    .media-list {
+        .media {
             padding: 0.5rem 1rem;
         }
-        .media-body{
-          .list-inline{
-            i{
-              font-size: 1.2rem;
+        .media-body {
+            .list-inline {
+                i {
+                    font-size: 1.2rem;
+                }
             }
-          }
         }
     }
 }
 
 //search-menu
-.search-menu{
-    .search-filter, .dropdown-toggle{
+.search-menu {
+    .search-filter,
+    .dropdown-toggle {
         padding: 0.55rem 1rem !important;
         cursor: pointer;
         background-color: $white;
-        box-shadow: 0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
-
+        box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
     }
     //dropdown arrow icon display hide
-    .dropdown-toggle{
+    .dropdown-toggle {
         border-radius: 1.5rem !important;
-        &::after{
+        &::after {
             display: none;
         }
     }
 }
 
 //dropdown arrow icon
-.search-result-info{
-    .btn{
-        &.dropdown-toggle{
-            &::after{
+.search-result-info {
+    .btn {
+        &.dropdown-toggle {
+            &::after {
                 left: 0;
             }
         }
@@ -62,13 +59,13 @@
 
 // image and iframe height-width
 @media only screen and (min-width: 577px) {
-    #search-results{
-        li{
-            &.media{
-                .media-object{
+    #search-results {
+        li {
+            &.media {
+                .media-object {
                     width: 100px;
                 }
-                iframe{
+                iframe {
                     width: 100px;
                     height: 65px;
                 }
@@ -79,15 +76,16 @@
 
 // image and iframe height-width in sm screen
 @media only screen and (max-width: 576px) {
-    #search-results{
-        li{
-            &.media{
-                .media-left{
-                  width: 100%;
-                  img, iframe{
+    #search-results {
+        li {
+            &.media {
+                .media-left {
                     width: 100%;
-                    text-align: center;
-                  }
+                    img,
+                    iframe {
+                        width: 100%;
+                        text-align: center;
+                    }
                 }
             }
         }

@@ -2,18 +2,18 @@
     File Name: 3-columns-left-sidebar.js
     Description: Invoices list datables configurations
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: hhttp://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
 
 $(document).ready(function() {
     /***********************************
-    *        js of small Slider        *
-    ************************************/
+     *        js of small Slider        *
+     ************************************/
 
     var sm_options = {
-        start: [30,70],
+        start: [30, 70],
         behaviour: 'drag',
         connect: true,
         range: {

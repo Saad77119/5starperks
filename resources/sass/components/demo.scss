@@ -2,13 +2,13 @@
     File Name: demo.scss
     Description: CSS used for demo purpose only. Remove this css from your project.
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
 
-.fonticon-container{
-    > .fonticon-wrap{
+.fonticon-container {
+    >.fonticon-wrap {
         float: left;
         width: 60px;
         height: 60px;
@@ -18,47 +18,44 @@
         border-radius: 0.1875rem;
         margin-right: 1rem;
         margin-bottom: 1.5rem;
-        > i{
+        >i {
             font-size: 2.28rem;
             transition: all .2s ease-in-out;
         }
-        &.youtube{
+        &.youtube {
             width: 100px;
         }
     }
-    &:hover{        
-        i{
+    &:hover {
+        i {
             color: $primary;
             font-size: 2.9rem;
             transform: scale(1.3);
         }
     }
-
-    >.fonticon-classname, >.fonticon-unit{
+    >.fonticon-classname,
+    >.fonticon-unit {
         display: block;
         font-size: 1.5rem;
         line-height: 1.2;
     }
-
-    >.fonticon-unit{
+    >.fonticon-unit {
         font-size: 1rem;
         font-style: italic;
     }
 }
 
-.scroll-example{
+.scroll-example {
     padding: 0.5rem;
     position: relative;
-    border: 2px solid darken($body-bg,10%);
+    border: 2px solid darken($body-bg, 10%);
     overflow: auto;
-
-    .horz-scroll-content{
-        width:1200px;
+    .horz-scroll-content {
+        width: 1200px;
     }
 }
 
-
-.browser{
+.browser {
     background: #e0e0e0;
     border: 4px solid #e0e0e0;
     width: 100%;
@@ -81,11 +78,11 @@
     height: 8em;
 }
 
-.maintenance-icon{
-    font-size:4rem;
+.maintenance-icon {
+    font-size: 4rem;
 }
 
-.animationIcon{
+.animationIcon {
     right: 30px;
     bottom: 10px;
 }

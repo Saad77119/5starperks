@@ -2,26 +2,26 @@
     File Name: card-statistics.js
     Description: Card-statistics page content with Apexchart Examples
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
 
-$(window).on("load", function(){
+$(window).on("load", function() {
 
-  var $primary = '#7367F0';
-  var $danger = '#EA5455';
-  var $warning = '#FF9F43';
-  var $info = '#00cfe8';
-  var $success = '#00db89';
-  var $primary_light = '#9c8cfc';
-  var $warning_light = '#FFC085';
-  var $danger_light = '#f29292';
-  var $info_light = '#1edec5';
-  var $strok_color = '#b9c3cd';
-  var $label_color = '#e7eef7';
-  var $purple = '#df87f2';
-  var $white = '#fff';
+    var $primary = '#7367F0';
+    var $danger = '#EA5455';
+    var $warning = '#FF9F43';
+    var $info = '#00cfe8';
+    var $success = '#00db89';
+    var $primary_light = '#9c8cfc';
+    var $warning_light = '#FFC085';
+    var $danger_light = '#f29292';
+    var $info_light = '#1edec5';
+    var $strok_color = '#b9c3cd';
+    var $label_color = '#e7eef7';
+    var $purple = '#df87f2';
+    var $white = '#fff';
 
 
     // Session Chart
@@ -52,7 +52,7 @@ $(window).on("load", function(){
         }
     }
 
-   var sessionChart = new ApexCharts(
+    var sessionChart = new ApexCharts(
         document.querySelector("#session-chart"),
         sessionChartoptions
     );
@@ -87,7 +87,7 @@ $(window).on("load", function(){
         },
         plotOptions: {
             radialBar: {
-              size: 150,
+                size: 150,
                 hollow: {
                     size: '20%'
                 },
@@ -106,7 +106,7 @@ $(window).on("load", function(){
                         show: true,
                         label: 'Total',
 
-                        formatter: function (w) {
+                        formatter: function(w) {
                             // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
                             return 42459
                         }
@@ -119,7 +119,7 @@ $(window).on("load", function(){
 
     }
 
-   var orderChart = new ApexCharts(
+    var orderChart = new ApexCharts(
         document.querySelector("#product-order-chart"),
         orderChartoptions
     );
@@ -251,60 +251,60 @@ $(window).on("load", function(){
     // Support Tracker Chart
     // -----------------------------
 
-   var supportChartoptions = {
-      chart: {
-          height: 270,
-          type: 'radialBar',
-          sparkline:{
-            enabled: false,
-          }
-      },
-      plotOptions: {
-          radialBar: {
-              size: 150,
-              offsetY: 20,
-              startAngle: -150,
-              endAngle: 150,
-              hollow: {
-                  size: '65%',
-              },
-              track: {
-                  background: $white,
-                  strokeWidth: '100%',
+    var supportChartoptions = {
+        chart: {
+            height: 270,
+            type: 'radialBar',
+            sparkline: {
+                enabled: false,
+            }
+        },
+        plotOptions: {
+            radialBar: {
+                size: 150,
+                offsetY: 20,
+                startAngle: -150,
+                endAngle: 150,
+                hollow: {
+                    size: '65%',
+                },
+                track: {
+                    background: $white,
+                    strokeWidth: '100%',
 
-              },
-              dataLabels: {
-                  value: {
-                      offsetY: 30,
-                      color: '#99a2ac',
-                      fontSize: '2rem'
-                  }
-              }
-          },
-      },
-      colors: [$danger],
-      fill: {
-          type: 'gradient',
-          gradient: {
-              // enabled: true,
-              shade: 'dark',
-              type: 'horizontal',
-              shadeIntensity: 0.5,
-              gradientToColors: [$primary],
-              inverseColors: true,
-              opacityFrom: 1,
-              opacityTo: 1,
-              stops: [0, 100]
-          },
-      },
-      stroke: {
-          dashArray: 8
-      },
-      series: [83],
-      labels: ['Completed Tickets'],
+                },
+                dataLabels: {
+                    value: {
+                        offsetY: 30,
+                        color: '#99a2ac',
+                        fontSize: '2rem'
+                    }
+                }
+            },
+        },
+        colors: [$danger],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                // enabled: true,
+                shade: 'dark',
+                type: 'horizontal',
+                shadeIntensity: 0.5,
+                gradientToColors: [$primary],
+                inverseColors: true,
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 100]
+            },
+        },
+        stroke: {
+            dashArray: 8
+        },
+        series: [83],
+        labels: ['Completed Tickets'],
     }
 
-   var supportChart = new ApexCharts(
+    var supportChart = new ApexCharts(
         document.querySelector("#support-tracker-chart"),
         supportChartoptions
     );
@@ -314,86 +314,86 @@ $(window).on("load", function(){
     // Revenue  Chart
     // -----------------------------
 
-   var revenueChartoptions = {
-      chart: {
-        height: 260,
-        toolbar: { show: false },
-        type: 'line',
-      },
-      stroke: {
-          curve: 'smooth',
-          dashArray: [0, 8],
-          width: [4, 2],
-      },
-      grid: {
-          borderColor: $label_color,
-      },
-      legend: {
-          show: false,
-      },
-      colors: [$danger_light, $strok_color],
+    var revenueChartoptions = {
+        chart: {
+            height: 260,
+            toolbar: { show: false },
+            type: 'line',
+        },
+        stroke: {
+            curve: 'smooth',
+            dashArray: [0, 8],
+            width: [4, 2],
+        },
+        grid: {
+            borderColor: $label_color,
+        },
+        legend: {
+            show: false,
+        },
+        colors: [$danger_light, $strok_color],
 
-      fill: {
-          type: 'gradient',
-          gradient: {
-              shade: 'dark',
-              inverseColors: false,
-              gradientToColors: [$primary, $strok_color],
-              shadeIntensity: 1,
-              type: 'horizontal',
-              opacityFrom: 1,
-              opacityTo: 1,
-              stops: [0, 100, 100, 100]
-          },
-      },
-      markers: {
-          size: 0,
-          hover: {
-              size: 5
-          }
-      },
-      xaxis: {
-          labels: {
-              style: {
-                  colors: $strok_color,
-              }
-          },
-          axisTicks: {
-              show: false,
-          },
-          categories: ['01', '05', '09', '13', '17', '21', '26', '31'],
-          axisBorder: {
-              show: false,
-          },
-          tickPlacement: 'on',
-      },
-      yaxis: {
-          tickAmount: 5,
-          labels: {
-              style: {
-                  color: $strok_color,
-              },
-              formatter: function(val) {
-                  return val > 999 ? (val / 1000).toFixed(1) + 'k' : val;
-              }
-          }
-      },
-      tooltip: {
-          x: { show: false }
-      },
-      series: [{
-              name: "This Month",
-              data: [45000, 47000, 44800, 47500, 45500, 48000, 46500, 48600]
-          },
-          {
-              name: "Last Month",
-              data: [46000, 48000, 45500, 46600, 44500, 46500, 45000, 47000]
-          }
-      ],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                inverseColors: false,
+                gradientToColors: [$primary, $strok_color],
+                shadeIntensity: 1,
+                type: 'horizontal',
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 100, 100, 100]
+            },
+        },
+        markers: {
+            size: 0,
+            hover: {
+                size: 5
+            }
+        },
+        xaxis: {
+            labels: {
+                style: {
+                    colors: $strok_color,
+                }
+            },
+            axisTicks: {
+                show: false,
+            },
+            categories: ['01', '05', '09', '13', '17', '21', '26', '31'],
+            axisBorder: {
+                show: false,
+            },
+            tickPlacement: 'on',
+        },
+        yaxis: {
+            tickAmount: 5,
+            labels: {
+                style: {
+                    color: $strok_color,
+                },
+                formatter: function(val) {
+                    return val > 999 ? (val / 1000).toFixed(1) + 'k' : val;
+                }
+            }
+        },
+        tooltip: {
+            x: { show: false }
+        },
+        series: [{
+                name: "This Month",
+                data: [45000, 47000, 44800, 47500, 45500, 48000, 46500, 48600]
+            },
+            {
+                name: "Last Month",
+                data: [46000, 48000, 45500, 46600, 44500, 46500, 45000, 47000]
+            }
+        ],
 
     }
 
-   var revenueChart = new ApexCharts(
+    var revenueChart = new ApexCharts(
         document.querySelector("#revenue-chart"),
         revenueChartoptions
     );
@@ -405,68 +405,68 @@ $(window).on("load", function(){
     // -----------------------------
 
     var goalChartoptions = {
-      chart: {
-        height: 250,
-        type: 'radialBar',
-        sparkline: {
-            enabled: true,
+        chart: {
+            height: 250,
+            type: 'radialBar',
+            sparkline: {
+                enabled: true,
+            },
+            dropShadow: {
+                enabled: true,
+                blur: 3,
+                left: 1,
+                top: 1,
+                opacity: 0.1
+            },
         },
-        dropShadow: {
-            enabled: true,
-            blur: 3,
-            left: 1,
-            top: 1,
-            opacity: 0.1
+        colors: [$success],
+        plotOptions: {
+            radialBar: {
+                size: 110,
+                startAngle: -150,
+                endAngle: 150,
+                hollow: {
+                    size: '77%',
+                },
+                track: {
+                    background: $strok_color,
+                    strokeWidth: '50%',
+                },
+                dataLabels: {
+                    name: {
+                        show: false
+                    },
+                    value: {
+                        offsetY: 18,
+                        color: $strok_color,
+                        fontSize: '4rem'
+                    }
+                }
+            }
         },
-      },
-      colors: [$success],
-      plotOptions: {
-          radialBar: {
-              size: 110,
-              startAngle: -150,
-              endAngle: 150,
-              hollow: {
-                  size: '77%',
-              },
-              track: {
-                  background: $strok_color,
-                  strokeWidth: '50%',
-              },
-              dataLabels: {
-                  name: {
-                      show: false
-                  },
-                  value: {
-                      offsetY: 18,
-                      color: $strok_color,
-                      fontSize: '4rem'
-                  }
-              }
-          }
-      },
-      fill: {
-          type: 'gradient',
-          gradient: {
-              shade: 'dark',
-              type: 'horizontal',
-              shadeIntensity: 0.5,
-              gradientToColors: ['#00b5b5'],
-              inverseColors: true,
-              opacityFrom: 1,
-              opacityTo: 1,
-              stops: [0, 100]
-          },
-      },
-      series: [83],
-      stroke: {
-        lineCap: 'round'
-      },
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                type: 'horizontal',
+                shadeIntensity: 0.5,
+                gradientToColors: ['#00b5b5'],
+                inverseColors: true,
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 100]
+            },
+        },
+        series: [83],
+        stroke: {
+            lineCap: 'round'
+        },
 
     }
 
     var goalChart = new ApexCharts(
-      document.querySelector("#goal-overview-chart"),
-      goalChartoptions
+        document.querySelector("#goal-overview-chart"),
+        goalChartoptions
     );
 
     goalChart.render();
@@ -511,11 +511,11 @@ $(window).on("load", function(){
             x: { show: false }
         },
         xaxis: {
-          type: 'numeric',
+            type: 'numeric',
         }
     }
 
-   var avgsessionChart = new ApexCharts(
+    var avgsessionChart = new ApexCharts(
         document.querySelector("#avg-session-chart"),
         avgsessionChartoptions
     );
@@ -525,86 +525,86 @@ $(window).on("load", function(){
     // Sales  Chart
     // -----------------------------
 
-   var salesavgChartoptions = {
-      chart: {
-        height: 270,
-        toolbar: { show: false },
-        type: 'line',
-        dropShadow: {
-            enabled: true,
-            top: 20,
-            left: 2,
-            blur: 6,
-            opacity: 0.20
+    var salesavgChartoptions = {
+        chart: {
+            height: 270,
+            toolbar: { show: false },
+            type: 'line',
+            dropShadow: {
+                enabled: true,
+                top: 20,
+                left: 2,
+                blur: 6,
+                opacity: 0.20
+            },
         },
-      },
-      stroke: {
-          curve: 'smooth',
-          width: 4,
-      },
-      grid: {
-          borderColor: $label_color,
-      },
-      legend: {
-          show: false,
-      },
-     colors: [$purple],
-      fill: {
-          type: 'gradient',
-          gradient: {
-              shade: 'dark',
-              inverseColors: false,
-              gradientToColors: [$primary],
-              shadeIntensity: 1,
-              type: 'horizontal',
-              opacityFrom: 1,
-              opacityTo: 1,
-              stops: [0, 100, 100, 100]
-          },
-      },
-      markers: {
-          size: 0,
-          hover: {
-              size: 5
-          }
-      },
-      xaxis: {
-          labels: {
-              style: {
-                  colors: $strok_color,
-              }
-          },
-          axisTicks: {
-              show: false,
-          },
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-          axisBorder: {
-              show: false,
-          },
-          tickPlacement: 'on'
-      },
-      yaxis: {
-          tickAmount: 5,
-          labels: {
-              style: {
-                  color: $strok_color,
-              },
-              formatter: function(val) {
-                  return val > 999 ? (val / 1000).toFixed(1) + 'k' : val;
-              }
-          }
-      },
-      tooltip: {
-          x: { show: false }
-      },
-      series: [{
+        stroke: {
+            curve: 'smooth',
+            width: 4,
+        },
+        grid: {
+            borderColor: $label_color,
+        },
+        legend: {
+            show: false,
+        },
+        colors: [$purple],
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                inverseColors: false,
+                gradientToColors: [$primary],
+                shadeIntensity: 1,
+                type: 'horizontal',
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 100, 100, 100]
+            },
+        },
+        markers: {
+            size: 0,
+            hover: {
+                size: 5
+            }
+        },
+        xaxis: {
+            labels: {
+                style: {
+                    colors: $strok_color,
+                }
+            },
+            axisTicks: {
+                show: false,
+            },
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            axisBorder: {
+                show: false,
+            },
+            tickPlacement: 'on'
+        },
+        yaxis: {
+            tickAmount: 5,
+            labels: {
+                style: {
+                    color: $strok_color,
+                },
+                formatter: function(val) {
+                    return val > 999 ? (val / 1000).toFixed(1) + 'k' : val;
+                }
+            }
+        },
+        tooltip: {
+            x: { show: false }
+        },
+        series: [{
             name: "Sales",
             data: [140, 180, 150, 205, 160, 295, 125, 255, 205, 305, 240, 295]
         }],
 
     }
 
-   var salesavgChart = new ApexCharts(
+    var salesavgChart = new ApexCharts(
         document.querySelector("#sales-line-chart"),
         salesavgChartoptions
     );
@@ -648,9 +648,9 @@ $(window).on("load", function(){
             offsetX: 0,
             fontSize: '14px',
             markers: {
-              radius: 50,
-              width: 10,
-              height: 10,
+                radius: 50,
+                width: 10,
+                height: 10,
             }
         },
         dataLabels: {
@@ -683,7 +683,7 @@ $(window).on("load", function(){
         },
     }
 
-   var retentionChart = new ApexCharts(
+    var retentionChart = new ApexCharts(
         document.querySelector("#client-retention-chart"),
         retentionChartoptions
     );

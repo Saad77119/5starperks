@@ -2,18 +2,18 @@
     File Name: sweet-alerts.js
     Description: A beautiful replacement for javascript alerts
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
-$(document).ready(function(){
+$(document).ready(function() {
 
     // RTL Support
     var rtl = false;
-    if($('html').data('textdirection') == 'rtl'){
+    if ($('html').data('textdirection') == 'rtl') {
         rtl = true;
     }
-    if(rtl === true){
+    if (rtl === true) {
         $("#default-slider").attr('dir', 'rtl');
         $("#automatic-slider").attr('dir', 'rtl');
         $("#vertical-slider").attr('dir', 'rtl');

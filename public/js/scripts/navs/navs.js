@@ -4,7 +4,7 @@
                  from the base .nav class to the active and disabled states.
                  Swap modifier classes to switch between each style.
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/

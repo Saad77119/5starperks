@@ -2,7 +2,7 @@
     File Name: maps.js
     Description: google maps
     ----------------------------------------------------------------------------------------
-    Item name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    
     Author: Saad Raza
     Author URL: http://www.themeforest.net/user/Saad Raza
 ==========================================================================================*/
@@ -10,7 +10,7 @@
 // Gmaps Maps
 // ------------------------------
 
-$(window).on("load", function(){
+$(window).on("load", function() {
 
     // Basic Map
     // ------------------------------
@@ -66,43 +66,42 @@ $(window).on("load", function(){
     // ------------------------------
 
     map = GMaps.createPanorama({
-      el: '#street-view',
-      lat : 52.201272,
-      lng: 0.118720,
+        el: '#street-view',
+        lat: 52.201272,
+        lng: 0.118720,
     });
 
     // Random Value for street heading
 
-    $(".street-heading").on("click", function(){
-      map = GMaps.createPanorama({
-        el: '#street-view',
-        lat : 52.201272,
-        lng: 0.118720,
-        pov: { heading: Math.random() * 360, pitch: 5 }
-      });
+    $(".street-heading").on("click", function() {
+        map = GMaps.createPanorama({
+            el: '#street-view',
+            lat: 52.201272,
+            lng: 0.118720,
+            pov: { heading: Math.random() * 360, pitch: 5 }
+        });
     });
 
     // Random Value for street Pitch
 
-    $(".street-pitch").on("click", function(){
-      map = GMaps.createPanorama({
-        el: '#street-view',
-        lat : 52.201272,
-        lng: 0.118720,
-        pov: { heading: 20, pitch: Math.random() * 180 - 90 }
-      });
+    $(".street-pitch").on("click", function() {
+        map = GMaps.createPanorama({
+            el: '#street-view',
+            lat: 52.201272,
+            lng: 0.118720,
+            pov: { heading: 20, pitch: Math.random() * 180 - 90 }
+        });
     });
 
     // Random Value for both street heading and street pitch
 
-    $(".street-both").on("click", function(){
-      map = GMaps.createPanorama({
-        el: '#street-view',
-        lat : 52.201272,
-        lng: 0.118720,
-        pov: { heading: Math.random() * 360, pitch: Math.random() * 180 - 90 }
-      });
+    $(".street-both").on("click", function() {
+        map = GMaps.createPanorama({
+            el: '#street-view',
+            lat: 52.201272,
+            lng: 0.118720,
+            pov: { heading: Math.random() * 360, pitch: Math.random() * 180 - 90 }
+        });
     });
 
 });
-
